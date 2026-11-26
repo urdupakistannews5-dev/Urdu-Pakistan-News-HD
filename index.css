@@ -1,0 +1,136 @@
+@import "tailwindcss";
+
+@layer base {
+  html {
+    font-family: 'Jameel Noori Nastaliq', 'Noto Nastaliq Urdu', 'Noto Naskh Arabic', system-ui, -apple-system, sans-serif;
+    overflow-x: clip;
+  }
+
+  body {
+    overflow-x: clip;
+  }
+}
+
+.font-urdu-display {
+  font-family: 'Jameel Noori Nastaliq', 'Noto Nastaliq Urdu', 'Noto Naskh Arabic', serif;
+}
+
+.font-urdu-body {
+  font-family: 'Jameel Noori Nastaliq', 'Noto Nastaliq Urdu', 'Noto Naskh Arabic', serif;
+}
+
+.font-ui-sans {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.font-mono-num {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Smooth RTL marquee for Breaking News Ticker */
+@keyframes urdu-ticker-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(50%);
+  }
+}
+
+.ticker-track {
+  display: flex;
+  width: max-content;
+  animation: urdu-ticker-scroll 38s linear infinite;
+}
+
+.ticker-wrapper:hover .ticker-track,
+.ticker-wrapper:focus-within .ticker-track {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ticker-track {
+    animation: none;
+    width: auto;
+    flex-wrap: wrap;
+  }
+}
+
+/* Hide scrollbars cleanly on horizontal category tab strip */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Smooth Waving Pakistan Flag Animation */
+@keyframes pk-flag-wave {
+  0% {
+    transform: perspective(180px) rotateY(0deg) skewY(0deg);
+  }
+  25% {
+    transform: perspective(180px) rotateY(7deg) skewY(1.2deg);
+  }
+  50% {
+    transform: perspective(180px) rotateY(-4deg) skewY(-1deg);
+  }
+  75% {
+    transform: perspective(180px) rotateY(6deg) skewY(0.8deg);
+  }
+  100% {
+    transform: perspective(180px) rotateY(0deg) skewY(0deg);
+  }
+}
+
+@keyframes pk-flag-shimmer {
+  0%,
+  100% {
+    opacity: 0.14;
+    transform: translateX(-18%);
+  }
+  50% {
+    opacity: 0.28;
+    transform: translateX(18%);
+  }
+}
+
+.animate-pk-flag {
+  transform-origin: right center;
+  animation: pk-flag-wave 3.4s ease-in-out infinite;
+}
+
+.animate-pk-shimmer {
+  animation: pk-flag-shimmer 3.4s ease-in-out infinite;
+}
+
+.pk-flag-glow {
+  filter: drop-shadow(0 0 8px rgba(1, 65, 28, 0.45))
+    drop-shadow(0 0 12px rgba(255, 255, 255, 0.4));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-pk-flag,
+  .animate-pk-shimmer {
+    animation: none;
+  }
+}
+
+/* Print only the Digital ID Card when printing */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #printable-digital-id-card,
+  #printable-digital-id-card * {
+    visibility: visible;
+  }
+  #printable-digital-id-card {
+    position: fixed;
+    inset: 0;
+    margin: auto;
+    box-shadow: none !important;
+  }
+}
