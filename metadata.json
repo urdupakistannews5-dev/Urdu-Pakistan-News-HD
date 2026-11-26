@@ -1,0 +1,6 @@
+{
+  "name": "اُردو پاکستان نیوز | Urdu Pakistan News",
+  "description": "Responsive RTL Urdu news portal for Pakistan and Faisalabad with breaking ticker, category filtering, article reader, WhatsApp sharing, and separate Staff & Admin publishing controls.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
